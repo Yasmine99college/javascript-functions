@@ -1,3 +1,5 @@
+const { callExpression } = require("jscodeshift");
+
 function seed() {
   return Array.from(arguments);
 }
@@ -12,7 +14,18 @@ function contains(cell) {
 
 }
 
-const printCell = (cell, state) => {};
+const printCell = (cell, state) => {
+  let bool=contains.call(this,cell);
+  if(bool)
+  {
+    return "\u25A3";
+  }
+  else 
+  {
+    return "\u25A2"
+  }
+
+};
 
 const corners = (state = []) => {};
 
