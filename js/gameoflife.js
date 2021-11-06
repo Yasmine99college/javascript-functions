@@ -15,8 +15,8 @@ function contains(cell) {
 }
 
 const printCell = (cell, state) => {
-  state=contains.call(this,cell);
-  if(state)
+  let bool=contains.call(state,cell);
+  if(bool)
   {
     return "\u25A3";
     
