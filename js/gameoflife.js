@@ -31,16 +31,16 @@ const printCell = (cell, state) => {
 const corners = (state = []) => {
   if(state.length===0)
   {
-    return{
-      topright:[0, 0],
-      bottomleft:[0, 0]
+    return {
+      topright: [0, 0],
+      bottomleft: [0, 0]
     }
 
   }
   
-  const xs=state.map(([x, _])=>x);
-  const ys=state.map(([_, y])=>y);
-  return{
+  const xs= state.map(([x, _])=>x);
+  const ys= state.map(([_, y])=>y);
+  return {
     topright:[Math.max(...xs), Math.max(...ys)],
     bottomleft:[Math.min(...xs), Math.min(...ys)]
   }
@@ -49,7 +49,21 @@ const corners = (state = []) => {
 
 };
 
-const printCells = (state) => {};
+const printCells = (state) => {
+  const { bottomleft, topright}=corners(state);
+  let accumulator="";
+  for ( let y=topright[1];y>=bottomleft[1];y--)
+  {
+    let row=[];
+    for(x=bottomleft[0];x<=topright[0];x++)
+    {
+      row.push(printCell([x,y],state));
+    }
+    accumulator+=row.join(" ")+ "\n";
+
+  }
+  return accumulator;
+};
 
 const getNeighborsOf = ([x, y]) => {};
 
