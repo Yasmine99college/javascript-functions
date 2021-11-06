@@ -15,14 +15,15 @@ function contains(cell) {
 }
 
 const printCell = (cell, state) => {
-  let bool=contains.call(this,cell);
-  if(bool)
+  state=contains.call(this,cell);
+  if(state)
   {
     return "\u25A3";
+    
   }
   else 
   {
-    return "\u25A2"
+    return "\u25A2";
   }
 
 };
