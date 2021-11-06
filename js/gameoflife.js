@@ -3,7 +3,9 @@ function seed() {
 }
 
 function same([x, y], [j, k]) {
-  return [x,y]===[j,k];
+  let a=[x,y];
+  let b=[j,k];
+  return a===b;
   
 }
 
