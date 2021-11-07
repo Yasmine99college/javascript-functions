@@ -35,7 +35,6 @@ const corners = (state = []) => {
       topright: [0, 0],
       bottomleft: [0, 0]
     }
-
   }
   
   const xs= state.map(([x, _])=>x);
