@@ -81,7 +81,18 @@ const willBeAlive = (cell, state) => {
   );
 };
 
-const calculateNext = (state) => {};
+const calculateNext = (state) => {
+  const { bottomleft, topright} =corners(state);
+  let res=[];
+  for(let y= topright[1]+1; y>=bottomleft[1]-1;y--)
+  {
+    for(let x= bottomleft[0]-1;x<=topright[0]+1;x++)
+    {
+      res=res.concat(willBeAlive([x,y],state)? [[x,y]]:[]);
+    }
+  }
+  return res;
+};
 
 const iterate = (state, iterations) => {};
 
