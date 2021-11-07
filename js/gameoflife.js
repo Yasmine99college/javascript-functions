@@ -94,9 +94,20 @@ const calculateNext = (state) => {
   return res;
 };
 
-const iterate = (state, iterations) => {};
+const iterate = (state, iterations) => {
+  const states=[state];
+  for(let i=0;i<iterations;i++)
+  {
+    states.push(calculateNext(states[states.length-1]));
 
-const main = (pattern, iterations) => {};
+  }
+  return states;
+};
+
+const main = (pattern, iterations) => {
+  const res=iterate(startPatterns[pattern],iterations);
+  res.forEach(r=> console.log(printCells(r)));
+};
 
 const startPatterns = {
     rpentomino: [
