@@ -1,3 +1,6 @@
+import 'rxjs/operator/filter';
+
+
 const { callExpression } = require("jscodeshift");
 
 function seed() {
